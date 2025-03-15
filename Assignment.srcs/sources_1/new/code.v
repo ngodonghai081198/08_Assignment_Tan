@@ -23,15 +23,15 @@
 module code(
     input wire clk,       // Clock h? th?ng
     input wire rst,       // Reset
-    input wire [4:0] btn, // 5 nút nh?n K1 - K5
+    input wire [4:0] btn, // 5 nï¿½t nh?n K1 - K5
     output reg [2:0] led, // 3 LED LED1 - LED3
     output reg buzzer     // Buzzer
 );
 
-    reg [23:0] counter;  // B? ð?m t?c ð? LED
+    reg [23:0] counter;  // B? ï¿½?m t?c ï¿½? LED
     reg [23:0] value;
-    reg [23:0] speed;    // Giá tr? t?c ð? (có th? tãng/gi?m)
-    reg [1:0] mode;      // Ch? ð? sáng LED
+    reg [23:0] speed;    // Giï¿½ tr? t?c ï¿½? (cï¿½ th? tï¿½ng/gi?m)
+    reg [1:0] mode;      // Ch? ï¿½? sï¿½ng LED
     reg [23:0] i;
 
     always @(posedge clk or negedge rst) begin
@@ -39,10 +39,10 @@ module code(
             led <= 3'b000;  
             buzzer <= 1'b0; 
             counter <= 0;
-            speed <= 24'd10_000_000; // M?c ð?nh t?c ð?
-            mode <= 2'b00; // M?c ð?nh không hi?u ?ng
+            speed <= 24'd10_000_000; // M?c ï¿½?nh t?c ï¿½?
+            mode <= 2'b00; // M?c ï¿½?nh khï¿½ng hi?u ?ng
         end else begin
-            // Buzzer kêu khi nh?n nút
+            // Buzzer kï¿½u khi nh?n nï¿½t
             if (|btn) begin
                 buzzer <= 1'b1; 
                 if (value <= speed ) begin 
@@ -53,7 +53,7 @@ module code(
                 end
             end else begin
                 buzzer <= 1'b0;
-            end // X? l? ch? ð? LED khi nh?n nút
+            end // X? l? ch? ï¿½? LED khi nh?n nï¿½t
             
             if (!btn[0]) begin 
                 mode <= 2'b01; 
@@ -61,29 +61,31 @@ module code(
                 value <= 0;
             end
             
-             // Nh?n K1: LED ch?y ðu?i
+             // Nh?n K1: LED ch?y ï¿½u?i
             if (!btn[2]) begin
                 mode <= 2'b10; 
                 value <= 0;
-            end // Nh?n K3: LED sáng lan d?n
+            end // Nh?n K3: LED sï¿½ng lan d?n
             
             if (!btn[3]) begin
                 mode <= 2'b11;
                 value <= 0;
-            end // Nh?n K4: LED sáng t?t cùng lúc
+            end // Nh?n K4: LED sï¿½ng t?t cï¿½ng lï¿½c
             
 
-            // Ði?u ch?nh t?c ð? LED
+            // ï¿½i?u ch?nh t?c ï¿½? LED
             if (!btn[1] && speed > 24'd5_000_000) begin 
                 speed <= speed - 24'd1_000_000; 
                 value <= 0;
-            end // K2 tãng t?c
-            if (!btn[4] && speed < 24'd20_000_000) begin
+            end // K2 tï¿½ng t?c
+//            if (!btn[4] && speed < 24'd20_000_000) begin
+            if (!btn[4]) begin
+
                 speed <= speed + 24'd1_000_000; 
                 value <= 0;
             end // K5 gi?m t?c
 
-            // B? ð?m ði?u khi?n LED
+            // B? ï¿½?m ï¿½i?u khi?n LED
             counter <= counter + 1;
             if (counter >= speed) begin
                 counter <= 0;
@@ -105,8 +107,8 @@ module code(
                         led[2] = 1;
                     end
                         //led <= {led[1:0], led[2]}; 
-                    end // LED ch?y ðu?i
-                    2'b10: begin // LED sáng lan d?n
+                    end // LED ch?y ï¿½u?i
+                    2'b10: begin // LED sï¿½ng lan d?n
                         if (led == 3'b000) led <= 3'b001;
                         else if (led == 3'b001) led <= 3'b011;
                         else if (led == 3'b011) led <= 3'b111;
@@ -114,8 +116,8 @@ module code(
                         else if (led == 3'b011) led <= 3'b001;
                         else led <= 3'b000;
                     end
-                    2'b11: led <= ~led; // T?t c? LED sáng/t?t cùng lúc
-                    default: led <= 3'b000; // Không nh?n g? th? t?t LED
+                    2'b11: led <= ~led; // T?t c? LED sï¿½ng/t?t cï¿½ng lï¿½c
+                    default: led <= 3'b000; // Khï¿½ng nh?n g? th? t?t LED
                 endcase
             end
         end
