@@ -1,0 +1,28 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.25",
+   "Default View_TopLeft":"-110,-266",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port DDR -pg 1 -lvl 3 -x 620 -y -40 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 3 -x 620 -y -10 -defaultsOSRD
+preplace port port-id_buzzer -pg 1 -lvl 3 -x 620 -y -100 -defaultsOSRD
+preplace portBus btn -pg 1 -lvl 0 -x 0 -y -100 -defaultsOSRD
+preplace portBus led -pg 1 -lvl 3 -x 620 -y -130 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 1 -x 200 -y 0 -defaultsOSRD
+preplace inst code_0 -pg 1 -lvl 2 -x 480 -y -120 -defaultsOSRD
+preplace netloc btn_1 1 0 2 N -100 N
+preplace netloc code_0_led 1 2 1 N -130
+preplace netloc code_0_buzzer 1 2 1 590 -110n
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 1 1 370 -120n
+preplace netloc processing_system7_0_FCLK_CLK0 1 1 1 350 -140n
+preplace netloc processing_system7_0_DDR 1 1 2 360J -40 NJ
+preplace netloc processing_system7_0_FIXED_IO 1 1 2 NJ -10 NJ
+levelinfo -pg 1 0 200 480 620
+pagesize -pg 1 -db -bbox -sgen -100 -390 730 210
+"
+}
+{
+   "da_ps7_cnt":"1"
+}

@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Thu Mar 13 21:13:18 2025
+# Process ID: 31252
+# Current directory: D:/Assignment/Assignment/Assignment.runs/synth_1
+# Command line: vivado.exe -log design_1_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_wrapper.tcl
+# Log file: D:/Assignment/Assignment/Assignment.runs/synth_1/design_1_wrapper.vds
+# Journal file: D:/Assignment/Assignment/Assignment.runs/synth_1\vivado.jou
+# Running On: Ay-sus, OS: Windows, CPU Frequency: 3094 MHz, CPU Physical cores: 16, Host memory: 16989 MB
+#-----------------------------------------------------------
+source design_1_wrapper.tcl -notrace
